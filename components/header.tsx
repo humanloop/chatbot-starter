@@ -4,6 +4,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { IconGitHub } from '@/components/ui/icons'
 import { cn } from '@/lib/utils'
 import { NewChatButton } from './new-chat-button'
+import { ThemeToggle } from './theme-toggle'
 
 export const HumanloopLogomark = (
   props: React.ComponentProps<'svg'>
@@ -28,7 +29,7 @@ export async function Header() {
 
       <NewChatButton />
       <div className="flex items-center justify-end space-x-2">
-        {/* <ThemeToggle /> */}
+        <ThemeToggle />
         <a
           target="_blank"
           href="https://github.com/humanloop/chatbot-starter/"

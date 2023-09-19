@@ -10,25 +10,20 @@ export function NewChatButton() {
   const router = useRouter()
 
   return (
-    <Tooltip>
-      <TooltipTrigger asChild>
-        <button
-          onClick={e => {
-            e.preventDefault()
-            router.refresh()
-            router.push('/')
-          }}
-          className={cn(
-            buttonVariants({ size: 'sm', variant: 'outline' }),
-            'flex gap-2'
-          )}
-        >
-          <IconPlus />
-          New Chat
-          <span className="sr-only">New Chat</span>
-        </button>
-      </TooltipTrigger>
-      <TooltipContent>New Chat</TooltipContent>
-    </Tooltip>
+    <button
+      onClick={e => {
+        e.preventDefault()
+        router.refresh()
+        router.push('/')
+      }}
+      className={cn(
+        buttonVariants({ size: 'sm', variant: 'outline' }),
+        'flex gap-2'
+      )}
+    >
+      <IconPlus />
+      New Chat
+      <span className="sr-only">New Chat</span>
+    </button>
   )
 }
