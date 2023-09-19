@@ -8,13 +8,15 @@ import { cn } from '@/lib/utils'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { Providers } from '@/components/providers'
 import { Header } from '@/components/header'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Next.js AI Chatbot',
-    template: `%s - Next.js AI Chatbot`
+    default: 'Humanloop Chatbot Stater',
+    template: `%s - Humanloop Chatbot Starter`
   },
-  description: 'An AI-powered chatbot template built with Next.js and Vercel.',
+  description:
+    'An AI-powered chatbot template built with Humanloop and Next.js.',
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' }
@@ -48,7 +50,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <Header />
             <main className="flex flex-col flex-1 bg-muted/50">{children}</main>
           </div>
-          <TailwindIndicator />
         </Providers>
       </body>
     </html>
