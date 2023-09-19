@@ -11,7 +11,7 @@ export function ThemeToggle() {
   const [_, startTransition] = React.useTransition()
 
   return (
-    <Button
+    <Button/theme-toggle.tsx
       variant="ghost"
       size="icon"
       onClick={() => {

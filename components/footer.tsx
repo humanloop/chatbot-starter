@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 import { ExternalLink } from '@/components/external-link'
 
 export function FooterText({ className, ...props }: React.ComponentProps<'p'>) {
+  return null
   return (
     <p
       className={cn(
