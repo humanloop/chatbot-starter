@@ -1,10 +1,9 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
+import { useRouter } from 'next/navigation'
 import { buttonVariants } from './ui/button'
 import { IconPlus } from './ui/icons'
-import { useRouter } from 'next/navigation'
 
 export function NewChatButton() {
   const router = useRouter()
@@ -21,9 +20,8 @@ export function NewChatButton() {
         'flex gap-2'
       )}
     >
-      <IconPlus />
-      New Chat
-      <span className="sr-only">New Chat</span>
+      {/* <IconPlus /> */}
+      Reset Chat
     </button>
   )
 }
