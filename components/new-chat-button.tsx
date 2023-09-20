@@ -3,7 +3,6 @@
 import { cn } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
 import { buttonVariants } from './ui/button'
-import { IconPlus } from './ui/icons'
 
 export function NewChatButton() {
   const router = useRouter()
@@ -20,7 +19,6 @@ export function NewChatButton() {
         'flex gap-2'
       )}
     >
-      {/* <IconPlus /> */}
       Reset Chat
     </button>
   )
