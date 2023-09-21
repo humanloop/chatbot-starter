@@ -49,8 +49,8 @@ You will need to use the environment variables [defined in `.env.example`](.env.
 3. Download your environment variables: `vercel env pull`
 
 ```bash
-pnpm install
-pnpm dev
+npm install
+npm run dev
 ```
 
 Your app template should now be running on [localhost:3000](http://localhost:3000/).
