@@ -29,6 +29,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^1.2.1",
     "focus-trap-react": "^10.1.1",
+    "humanloop": "^0.5.11",
     "nanoid": "^4.0.2",
     "next": "13.4.19",
     "next-themes": "^0.2.1",
