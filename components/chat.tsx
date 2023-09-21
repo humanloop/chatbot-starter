@@ -1,15 +1,15 @@
-"use client"
+'use client'
 
-import { useChat, type Message } from "ai/react"
+import { useChat, type Message } from 'ai/react'
 
-import { ChatList } from "@/components/chat-list"
-import { ChatPanel } from "@/components/chat-panel"
-import { ChatScrollAnchor } from "@/components/chat-scroll-anchor"
-import { EmptyScreen } from "@/components/empty-screen"
-import { cn } from "@/lib/utils"
-import { toast } from "react-hot-toast"
+import { ChatList } from '@/components/chat-list'
+import { ChatPanel } from '@/components/chat-panel'
+import { ChatScrollAnchor } from '@/components/chat-scroll-anchor'
+import { EmptyScreen } from '@/components/empty-screen'
+import { cn } from '@/lib/utils'
+import { toast } from 'react-hot-toast'
 
-export interface ChatProps extends React.ComponentProps<"div"> {
+export interface ChatProps extends React.ComponentProps<'div'> {
   initialMessages?: Message[]
   id?: string
 }
@@ -17,7 +17,7 @@ export interface ChatProps extends React.ComponentProps<"div"> {
 export function Chat({ id, initialMessages, className }: ChatProps) {
   const { messages, append, reload, stop, isLoading, input, setInput } =
     useChat({
-      api: "/api/chat",
+      api: '/api/chat',
       initialMessages,
       id,
       body: {
@@ -31,7 +31,7 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
     })
   return (
     <>
-      <div className={cn("pb-[200px] pt-4 md:pt-10", className)}>
+      <div className={cn('pb-[200px] pt-4 md:pt-10', className)}>
         {messages.length ? (
           <>
             <ChatList messages={messages} />
