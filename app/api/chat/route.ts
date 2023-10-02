@@ -6,10 +6,6 @@ export const runtime = 'edge'
 
 const HUMANLOOP_API_KEY = process.env.HUMANLOOP_API_KEY
 
-if (!HUMANLOOP_API_KEY) {
-  throw new Error('HUMANLOOP_API_KEY is not set')
-}
-
 const humanloop = new Humanloop({
   useFetch: true, // useFetch must be "true" for humanloop to work in Next.js edge runtime,
   openaiApiKey: process.env.OPENAI_API_KEY,
@@ -17,6 +13,10 @@ const humanloop = new Humanloop({
 })
 
 export async function POST(req: Request) {
+  if (!HUMANLOOP_API_KEY) {
+    throw new Error('HUMANLOOP_API_KEY is not set')
+  }
+
   const { messages } = await req.json()
 
   const chatResponse = await humanloop.chatStream({
