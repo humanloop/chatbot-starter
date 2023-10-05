@@ -41,6 +41,16 @@ npm run dev
 
 Your app template should now be running on [localhost:3000](http://localhost:3000/).
 
+## Preview
+
+The chat interface powered by Next.js looks something like this:
+
+![Screenshot of the chat interface](https://files.readme.io/b933ee0-image.png)
+
+Meanwhile, in your Humanloop project, you can explore the generated logs from the app, iterate on the prompt, evaluate it and redeploy.
+
+![The Humanloop project linked to the chatbot app](https://files.readme.io/5f583bf-image.png)
+
 ## Humanloop
 
 In `app/api/chat/route.ts`, LLM chat calls are made via Humanloop's TypeScript SDK. Note that this file is an example of a Next.js [Route Handler](https://nextjs.org/docs/app/building-your-application/routing/route-handlers). This means it will run server-side, and therefore does not expose your OpenAI and Humanloop API keys to the client. This backend Route Handler is called from `components/chat.tsx` with the Vercel SDK's `useChat` hook.
