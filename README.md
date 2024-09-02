@@ -45,11 +45,11 @@ Your app template should now be running on [localhost:3000](http://localhost:300
 
 The chat interface powered by Next.js looks something like this:
 
-![Screenshot of the chat interface](https://files.readme.io/b933ee0-image.png)
+![Screenshot of the chat interface](./public/interface-example.png)
 
 Meanwhile, in your Humanloop project, you can explore the generated logs from the app, iterate on the prompt, evaluate it and redeploy.
 
-![The Humanloop project linked to the chatbot app](https://files.readme.io/5f583bf-image.png)
+![The Humanloop project linked to the chatbot app](./public/humanloop-example.png)
 
 ## Humanloop
 

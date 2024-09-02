@@ -1,3 +1,6 @@
+import { PromptCallStreamResponse } from 'humanloop/api'
+import { Stream } from 'humanloop/core/streaming-fetcher/Stream'
+
 /**
  * Converts the Humanloop stream to a stream of just text
  *
@@ -6,31 +9,20 @@
  * @param input a stream of Humanloop responses { output: string, id: string }
  * @returns a stream of just text
  */
-export function HumanloopStream(input: ReadableStream): ReadableStream {
-  const reader = input.getReader()
+export function HumanloopStream(
+  input: Stream<PromptCallStreamResponse>
+): ReadableStream<Uint8Array> {
   const encoder = new TextEncoder()
-
-  let tmp: string = ''
 
   return new ReadableStream({
     async pull(controller) {
-      const { value, done } = await reader.read()
-      if (done) {
-        controller.close()
-        return
-      }
-      const decoded = new TextDecoder().decode(value)
-      const chunks = decoded.split('}').filter(Boolean)
-
-      for (let chunk of chunks) {
-        try {
-          const parsed = JSON.parse(tmp + chunk + '}')
-          tmp = ''
-          controller.enqueue(encoder.encode(parsed.output))
-        } catch (e) {
-          tmp += chunk + '}'
+      for await (const value of input) {
+        if (typeof value.output === 'string') {
+          const encodedValue = encoder.encode(value.output)
+          controller.enqueue(encodedValue)
         }
       }
+      controller.close()
     }
   })
 }
