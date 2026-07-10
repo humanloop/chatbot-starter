@@ -30,9 +30,22 @@
 
 ## Running locally
 
-You will need to populate the two evironment variables shown in `.env.example`. Copy this file to a file called `.env`. You can retrieve you OpenAI API key [here](https://platform.openai.com/account/api-keys) and your Humanloop API key [here](https://app.humanloop.com/account/api-keys).
+You will need to populate the two environment variables shown in `.env.example`. You can retrieve your OpenAI API key [here](https://platform.openai.com/account/api-keys) and your Humanloop API key [here](https://app.humanloop.com/account/api-keys).
 
-To run the application locally, simply run:
+Copy `.env.example` to a new `.env` file:
+
+```bash
+cp .env.example .env
+```
+
+Then update `.env` with your API keys:
+
+```bash
+OPENAI_API_KEY=your-openai-api-key
+HUMANLOOP_API_KEY=your-humanloop-api-key
+```
+
+To run the application locally:
 
 ```bash
 npm install
@@ -40,6 +53,15 @@ npm run dev
 ```
 
 Your app template should now be running on [localhost:3000](http://localhost:3000/).
+
+### Troubleshooting
+
+If the app starts but the chat does not respond, check that:
+
+- `.env.example` has been copied to `.env`
+- Both `OPENAI_API_KEY` and `HUMANLOOP_API_KEY` are set
+- The development server was restarted after editing `.env`
+- Your OpenAI account has billing enabled
 
 ## Preview
 
@@ -55,7 +77,7 @@ Meanwhile, in your Humanloop project, you can explore the generated logs from th
 
 In `app/api/chat/route.ts`, LLM chat calls are made via Humanloop's TypeScript SDK. Note that this file is an example of a Next.js [Route Handler](https://nextjs.org/docs/app/building-your-application/routing/route-handlers). This means it will run server-side, and therefore does not expose your OpenAI and Humanloop API keys to the client. This backend Route Handler is called from `components/chat.tsx` with the Vercel SDK's `useChat` hook.
 
-After sending and receiving some chat messages in your app, visit the [Humanloop app](https://app.humnaloop.com), and you will see a project called `sdk-example`. Visit the `Logs` tab and you will find all the chat histories from your running application.
+After sending and receiving some chat messages in your app, visit the [Humanloop app](https://app.humanloop.com), and you will see a project called `sdk-example`. Visit the `Logs` tab and you will find all the chat histories from your running application.
 
 ## Deploy Your Own
 
