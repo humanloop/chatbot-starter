@@ -12,8 +12,12 @@ const client = new HumanloopClient({
 
 export async function POST(req: Request) {
   if (!HUMANLOOP_API_KEY) {
-    throw new Error('HUMANLOOP_API_KEY is not set')
+    return new Response('Missing HUMANLOOP_API_KEY environment variable', {
+      status: 500,
+      statusText: 'Missing Humanloop API key'
+    })
   }
+
 
   const { messages } = await req.json()
 
