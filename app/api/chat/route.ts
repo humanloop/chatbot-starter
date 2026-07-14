@@ -18,8 +18,8 @@ export async function POST(req: Request) {
     })
   }
 
-
   const { messages } = await req.json()
+
 
   const chatResponse = await client.prompts.callStream({
     path: 'sdk-example',
