@@ -62,7 +62,7 @@ export function PromptForm({
               <Button
                 type="submit"
                 size="icon"
-                disabled={isLoading || input === ''}
+                disabled={isLoading || !input.trim()}
               >
                 <IconArrowElbow />
                 <span className="sr-only">Send message</span>
