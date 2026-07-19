@@ -23,7 +23,7 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
       body: { id },
       onResponse(response) {
         if (response.status !== 200) {
-          toast.error(response.statusText)
+          toast.error(response.statusText || 'Something went wrong. Please try again.')
         }
       }
     })
